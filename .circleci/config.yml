@@ -10,13 +10,21 @@ jobs:
       - node/install
       - checkout
       - run:
-          name: Install Front-End Dependencies
+          name: Install Front-End
           command: |
             npm run frontend:install
       - run:
           name: Front-End Build
           command: |
             npm run frontend:build
+      - run:
+          name: Install Back-End
+          command: |
+            npm run backend:install
+      - run:
+          name: Back-End Build
+          command: |
+            npm run backend:build
   deploy:
     docker:
       - image: 'cimg/base:stable'
