@@ -38,4 +38,4 @@ jobs:
 workflows:
   udagram:
     jobs:
-      - build
+      - deploy
