@@ -31,6 +31,7 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - node/install
+      - aws-cli/setup
       - run:
           name: Deploy App
           command: |
