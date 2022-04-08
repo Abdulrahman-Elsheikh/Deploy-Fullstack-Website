@@ -10,34 +10,32 @@ jobs:
       - node/install
       - checkout
       - aws-cli/setup
-      - run:
-          name: Install Front-End
-          command: |
-            npm run frontend:install
-      - run:
-          name: Front-End Build
-          command: |
-            npm run frontend:build
+      - eb/setup
       - run:
           name: Install Back-End
           command: |
             npm run backend:install
       - run:
+          name: Install Front-End
+          command: |
+            npm run frontend:install
+      - run:
           name: Back-End Build
           command: |
             npm run backend:build
-  deploy:
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
-      - node/install
-      - aws-cli/setup
       - run:
-          name: Deploy App
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      - run:
+          name: Back-End Deploy
+          command: |
+            npm run backend:deploy
+      - run:
+          name: Front-End Deploy
           command: |
             npm run frontend:deploy
 workflows:
   udagram:
     jobs:
       - build
-      - deploy
