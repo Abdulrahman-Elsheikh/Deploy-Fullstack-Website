@@ -2,9 +2,9 @@
   "name": "udagram-api",
   "version": "2.0.0",
   "description": "",
-  "main": "./www/server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node ./www/server.js",
+    "start": "node ./server.js",
     "tsc": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "tsc && node ./www/server.js",
@@ -29,7 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^5.21.4",
+    "sequelize": "^5.3.5",
     "sequelize-typescript": "^0.6.9"
   },
   "devDependencies": {
